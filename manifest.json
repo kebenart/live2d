@@ -1,0 +1,26 @@
+{
+    "name":"live2d",
+    "description":"网站看板娘",
+    "version":"1.0",
+    "manifest_version":2,
+    "browser_action": {
+      "default_icon": "default_head.png",
+      "default_popup":"popup.html",
+	  "default_title": "2d看板娘设置"
+    },
+    "icons":{
+        "128":"default_head.png"
+    },
+    "permissions":[ "storage","tabs","activeTab", "unlimitedStorage","webRequest", "management", "bookmarks", "topSites", "notifications", "tabs"],
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "content_scripts":[
+        {
+			"all_frames": false, 
+			"run_at": "document_end", 
+            "matches": ["http://*/*","https://*/*","file:///*"],
+            "js": ["jquery-3.4.1.min.js","main.js"]
+        }
+    ]
+}
