@@ -1,11 +1,15 @@
+var CONSTANTS = {
+	ENABLE: 'Enable',
+	DISABLE: 'Disable',
+	HIDDEN:'Hidden',
+	SHOW:'Show'
+};
+
 function setItem(key,value){
     window.localStorage.removeItem(key);
     window.localStorage.setItem(key,value);
 }
-var CONSTANTS = {
-	ENABLE: 'Enable',
-	DISABLE: 'Disable'
-};
+
 function getItem(key){
     var value;
     try{
@@ -39,6 +43,14 @@ chrome.extension.onMessage.addListener(
 				index: localStorage.index
 			});
 			break;
+			case 'setQiPao':
+				localStorage.setItem('qipao', request.status);
+				break;
+			case 'getQiPao':
+				sendResponse({
+					showHidden: localStorage.qipao
+				});
+				break;
 		default:
 			sendResponse({});
 		}
