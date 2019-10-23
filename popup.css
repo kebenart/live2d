@@ -1,0 +1,11 @@
+li{list-style:none;}
+
+#randIndex{
+    width:100px;
+    margin-top:10px
+}
+#indexUl{
+    margin-top:2px;
+    margin-bottom: 2px;
+    padding:0;
+}

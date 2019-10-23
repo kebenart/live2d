@@ -5,16 +5,17 @@ var CONSTANTS = {
 
 
 function init(){
-	var modelJsonUrl = "https://www.kebena.cn/model-data.json";
+	var modelJsonUrl = "https://www.kebena.cn/model-data-2.0.json";
 	var list = [];
 	$.ajaxSettings.async=false;
 	$.getJSON(modelJsonUrl,function(data){list = data;});
 	for(var i=0;i<list.length;i++){
 		var tag;
+		var name = list[i].name;
 		if(i==0){
-			tag = '<li><input id="tag'+i+'" name="tag" type="radio" value="'+i+'"checked="true" /> </li>';
+			tag = '<li><input id="tag'+i+'" name="tag" type="radio" value="'+i+'"checked="true" /> '+name+' </li>';
 		}else{
-			tag = '<li><input id="tag'+i+'" name="tag" type="radio" value="'+i+'" />  </li>';
+			tag = '<li><input id="tag'+i+'" name="tag" type="radio" value="'+i+'" /> '+name+' </li>';
 		}
 		$("#indexUl").append(tag);
 	}

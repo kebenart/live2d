@@ -19,7 +19,6 @@ function getItem(key){
 // Listeners
 chrome.extension.onMessage.addListener(
 	function(request, sender, sendResponse) {
-		console.log("---"+request.name)
 		switch(request.name) {
 		case 'setOptions':
 			// request from the content script to set the options.

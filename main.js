@@ -49,11 +49,11 @@ function loadModel(){
 						headDiv.id="headDiv";
 						headDiv.innerHTML='<div class="waifu"><div class="waifu-tips"></div><canvas id="live2d" width="250" height="500" class="live2d"></canvas></div>';
 						document.body.appendChild(headDiv);
-						var modelJsonUrl = "https://www.kebena.cn/model-data.json";
+						var modelJsonUrl = "https://www.kebena.cn/model-data-2.0.json";
 						var list = [];
 						$.ajaxSettings.async=false;
 						$.getJSON(modelJsonUrl,function(data){list = data;});
-						var url = list[response.index];
+						var url = list[response.index].url;
 						var loadLive = document.createElement("script");
 						loadLive.innerHTML='window.onload =function loadLive(){loadlive2d("live2d", "'+url+'");}';
 						document.body.appendChild(loadLive);	
